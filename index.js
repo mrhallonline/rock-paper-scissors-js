@@ -17,8 +17,6 @@ function playRound(playerSelection, computerSelection) {
     if (playerSelection === computerSelection) {
         return ("Draw");
     }
-
-
 }
 
 function computerPlay() {
@@ -32,6 +30,23 @@ function computerPlay() {
     if (randomNumber === 2) {
         computerSelection = "scissors";
     }
-    console.log(shoot);
-    console.log(randomNumber);
+    console.log(computerSelection);
+}
+
+
+
+function playerChoose () {
+    $("#rock").click(function () {
+        playerSelection = "rock";
+        console.log(playerSelection);
+    });
+    
+    $("#paper").click(function () {
+        playerSelection = "paper";
+        console.log(playerSelection);
+    });
+    $("#scissors").click(function () {
+        playerSelection = "scissors";
+        console.log(playerSelection);
+    });
 }
