@@ -3,35 +3,51 @@ var randomNumber;
 var computerSelection;
 var playerSelection;
 var levelCounter = 0;
+var wins = 0;
+var losses = 0;
 
 computerPlay();
+$("#rock").click(function () {
+    playerSelection = "rock";
+    playRound();
+});
+    
+$("#paper").click(function () {
+    playerSelection = "paper";
+    playRound();
+});
+
+$("#scissors").click(function () {
+    playerSelection = "scissors";
+    playRound();
+});
 
 function playRound() {
     levelCounter++;
     
     if (playerSelection == computerSelection){
-        console.log("It's a draw " + playerSelection + " vs " + computerSelection);
+        alert("It's a draw " + playerSelection + " vs " + computerSelection);
     }
     else if (playerSelection == "rock" && computerSelection == "paper") {
-        console.log("You lost " + playerSelection + " loses to " + computerSelection);
+        alert("You lost " + playerSelection + " loses to " + computerSelection);
         youLost();
     }
     else if (playerSelection == "rock" && computerSelection == "scissors") {
-        console.log("You won " + playerSelection + " beats " + computerSelection);
+        alert("You won " + playerSelection + " beats " + computerSelection);
     }
     else if (playerSelection == "paper" && computerSelection == "scissors") {
-        console.log("You lost " + playerSelection + " loses to " + computerSelection);
+        alert("You lost " + playerSelection + " loses to " + computerSelection);
         youLost();
     }
     else if (playerSelection == "paper" && computerSelection == "rock") {
-        console.log("You won " + playerSelection + " beats " + computerSelection);
+        alert("You won " + playerSelection + " beats " + computerSelection);
     }
     else if (playerSelection == "scissors" && computerSelection == "rock") {
-        console.log("You lost " + playerSelection + " loses to " + computerSelection);
+        alert("You lost " + playerSelection + " loses to " + computerSelection);
         youLost();
     }
     else if (playerSelection == "scissors" && computerSelection == "paper") {
-        console.log("You won " + playerSelection + " beats " + computerSelection);
+        alert("You won " + playerSelection + " beats " + computerSelection);
     }
 }
 
@@ -47,32 +63,13 @@ function computerPlay() {
     if (randomNumber === 2) {
         computerSelection = "scissors";
     }
+    
 }
 
-
-    $("#rock").click(function () {
-        playerSelection = "rock";
-        playRound();
-       
-        // console.log(playerSelection);
-    });
-    
-    $("#paper").click(function () {
-        playerSelection = "paper";
-        playRound();
-        
-        // console.log(playerSelection);
-    });
-    $("#scissors").click(function () {
-        playerSelection = "scissors";
-        playRound();
-   
-        // console.log(playerSelection);
-    });
 
 
 function youLost(){
     level = 0;
+    losses++;
     started = "no";
-
 }
