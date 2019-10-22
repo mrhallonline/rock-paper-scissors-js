@@ -1,50 +1,45 @@
 /*** Globals */
 
-body{
-background-color: #f1c40f;
-
-
-
+body {
+    background-color: #f1c40f;
 }
 
+h1,
+h2,
+h3,
+h4 {
+    color: #34495e;
+    text-align: center;
+    line-height: 1;
+}
+
+h2, h3 {
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 40px;
+    margin: 50px auto;
+}
 
 h1 {
     font-family: 'Indie Flower', cursive;
     font-size: 100px;
-    margin:15px 0;
-    color: #34495e;
-    text-align: center;
+    margin: 15px 0;
 }
 
 h2 {
-    font-family: 'Josefin Sans', sans-serif;
-    font-size: 40px;
-    margin: 50px auto;
-    text-align: center;
     background-color: #f39c12;
-    color: #34495e;
     border: solid;
     padding: 10px 0;
-}
-
-h3 {
-    font-family: 'Josefin Sans', sans-serif;
-    font-size: 40px;
-    margin: 50px 0;
-    color: #34495e;
-    text-align: center;
 }
 
 h4 {
     font-family: 'Josefin Sans', sans-serif;
     font-size: 25px;
     margin: 8px 0;
-    line-height: 1;
     text-align: left;
 }
 
 /***button div**/
-#shoot{ 
+#shoot {
     text-align: center;
     padding-right: 70px;
 }
@@ -54,7 +49,7 @@ h4 {
     text-align: center;
 }
 
-.main-div button{
+.main-div button {
     margin-left: 70px;
     padding: 25px;
 }
