@@ -1,58 +1,73 @@
-
 var randomNumber;
 var computerSelection;
 var playerSelection;
-var levelCounter = 0;
+var RoundCounter = 1;
 var wins = 0;
 var losses = 0;
+var playerScore = 0;
+var computerScore = 0;
 
-computerPlay();
-$("#rock").click(function () {
-    playerSelection = "rock";
-    playRound();
-});
-    
-$("#paper").click(function () {
-    playerSelection = "paper";
-    playRound();
-});
+$("#counter").text(" Player= " + playerScore + "     Round " + RoundCounter + "     Computer= " + computerScore);
+game();
 
-$("#scissors").click(function () {
-    playerSelection = "scissors";
-    playRound();
-});
+
+function playerChoose() {
+    $("#rock").click(function () {
+        playerSelection = "rock";
+        playRound();
+    });
+
+    $("#paper").click(function () {
+        playerSelection = "paper";
+        playRound();
+    });
+
+    $("#scissors").click(function () {
+        playerSelection = "scissors";
+        playRound();
+    });
+
+}
+
 
 function playRound() {
-    levelCounter++;
-    
-    if (playerSelection == computerSelection){
+    RoundCounter++;
+    $("#counter").text(" Player= " + playerScore + "     Round " + RoundCounter + "     Computer= " + computerScore);
+    computerPlay();
+    if (playerSelection == computerSelection) {
         alert("It's a draw " + playerSelection + " vs " + computerSelection);
-    }
-    else if (playerSelection == "rock" && computerSelection == "paper") {
+        
+    } else if (playerSelection == "rock" && computerSelection == "paper") {
         alert("You lost " + playerSelection + " loses to " + computerSelection);
-        youLost();
-    }
-    else if (playerSelection == "rock" && computerSelection == "scissors") {
+        computerScore++;
+
+    } else if (playerSelection == "rock" && computerSelection == "scissors") {
         alert("You won " + playerSelection + " beats " + computerSelection);
-    }
-    else if (playerSelection == "paper" && computerSelection == "scissors") {
+        playerScore++;
+
+    } else if (playerSelection == "paper" && computerSelection == "scissors") {
         alert("You lost " + playerSelection + " loses to " + computerSelection);
-        youLost();
-    }
-    else if (playerSelection == "paper" && computerSelection == "rock") {
+        computerScore++;
+
+    } else if (playerSelection == "paper" && computerSelection == "rock") {
         alert("You won " + playerSelection + " beats " + computerSelection);
-    }
-    else if (playerSelection == "scissors" && computerSelection == "rock") {
+        playerScore++;
+
+    } else if (playerSelection == "scissors" && computerSelection == "rock") {
         alert("You lost " + playerSelection + " loses to " + computerSelection);
-        youLost();
-    }
-    else if (playerSelection == "scissors" && computerSelection == "paper") {
+        computerScore++;
+
+    } else if (playerSelection == "scissors" && computerSelection == "paper") {
         alert("You won " + playerSelection + " beats " + computerSelection);
+        playerScore++;
     }
+    $("#counter").text(" Player= " + playerScore + "   Round " + RoundCounter + "   Computer= " + computerScore);
+    
 }
 
 
 function computerPlay() {
+    
     randomNumber = Math.floor(Math.random() * 3);
     if (randomNumber === 0) {
         computerSelection = "rock";
@@ -63,13 +78,14 @@ function computerPlay() {
     if (randomNumber === 2) {
         computerSelection = "scissors";
     }
-    
 }
 
+// function youLost() {
+//     Round = 0;
+//     losses++;
+//     started = "no";
+// }
 
-
-function youLost(){
-    level = 0;
-    losses++;
-    started = "no";
+function game() {
+    playerChoose();
 }
