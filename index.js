@@ -1,13 +1,14 @@
 var randomNumber;
 var computerSelection;
 var playerSelection;
-var RoundCounter = 1;
+var roundCounter = 0;
 var wins = 0;
 var losses = 0;
 var playerScore = 0;
 var computerScore = 0;
-
-$("#counter").text(" Player= " + playerScore + "     Round " + RoundCounter + "     Computer= " + computerScore);
+var winRound = "Round " + roundCounter+ ": You lost " + playerSelection + " loses to " + computerSelection;
+$("#round").html("Round " + roundCounter);
+$("#counter").html(" &nbsp;&nbsp; Player Score = " + playerScore +     " &nbsp;&nbsp;Computer Score = " + computerScore);
 game();
 
 function playerChoose() {
@@ -27,45 +28,47 @@ function playerChoose() {
     });
 }
 
-
+//🗿📄✂
 function playRound() {
-    RoundCounter++;
-    $("#counter").text(" Player= " + playerScore + "     Round " + RoundCounter + "     Computer= " + computerScore);
+    roundCounter++;
+    $("#round").html("Round " + roundCounter);
+    $("#counter").html(" &nbsp;&nbsp; Player Score = " + playerScore +     " &nbsp;&nbsp;Computer Score = " + computerScore);
     computerPlay();
     if (playerSelection == computerSelection) {
-        $("#winner").text("It's a draw " + playerSelection + " vs " + computerSelection);
+        $("#"+roundCounter).text("Round " + roundCounter+ ": It's a draw " + playerSelection + " vs " + computerSelection);
         
     } else if (playerSelection == "Rock" && computerSelection == "Paper") {
-        $("#winner").text("You lost " + playerSelection + " loses to " + computerSelection);
+        $("#"+roundCounter).text("Round " + roundCounter+ ": You lost " + playerSelection + " loses to " + computerSelection);
         computerScore++;
 
     } else if (playerSelection == "Rock" && computerSelection == "Scissors") {
-        $("#winner").text("You won " + playerSelection + " beats " + computerSelection);
+        $("#"+roundCounter).text("Round " + roundCounter+ ": You won " + playerSelection + " beats " + computerSelection);
         playerScore++;
 
     } else if (playerSelection == "Paper" && computerSelection == "Scissors") {
-        $("#winner").text("You lost " + playerSelection + " loses to " + computerSelection);
+        $("#"+roundCounter).text("Round " + roundCounter+ ": You lost " + playerSelection + " loses to " + computerSelection);
         computerScore++;
 
     } else if (playerSelection == "Paper" && computerSelection == "Rock") {
-        $("#winner").text("You won " + playerSelection + " beats " + computerSelection);
+        $("#"+roundCounter).text("Round " + roundCounter+ ": You won " + playerSelection + " beats " + computerSelection);
         playerScore++;
 
     } else if (playerSelection == "Scissors" && computerSelection == "Rock") {
-        $("#winner").text("You lost " + playerSelection + " loses to " + computerSelection);
+        $("#"+roundCounter).text("Round " + roundCounter+ ": You lost " + playerSelection + " loses to " + computerSelection);
         computerScore++;
 
     } else if (playerSelection == "Scissors" && computerSelection == "Paper") {
-        $("#winner").text("You won " + playerSelection + " beats " + computerSelection);
+        $("#"+roundCounter).text("Round " + roundCounter+ ": You won " + playerSelection + " beats " + computerSelection);
         playerScore++;
     }
-    $("#counter").text(" Player= " + playerScore + "   Round " + RoundCounter + "   Computer= " + computerScore);
+    $("#round").html("Round " + roundCounter);
+    $("#counter").html(" &nbsp;&nbsp; Player Score = " + playerScore +     " &nbsp;&nbsp;Computer Score = " + computerScore);
     if (playerScore>=3){
-        $("#winner").text("You won best 3 out of 5 rounds");
+        $("#winner").text("You won best 3 out of 5");
         gameOver();
     }
     else if(computerScore>=3){
-        $("#winner").text("Computer won best 3 out 5 rounds");
+        $("#winner").text("Computer won best 3 out 5");
         gameOver();
     }
 

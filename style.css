@@ -1,21 +1,40 @@
 /*** Globals */
+
+body{
+background-color: #f1c40f;
+
+
+
+}
+
+
 h1 {
-    font-size: 60px;
+    font-family: 'Indie Flower', cursive;
+    font-size: 100px;
     margin:75px 0;
     
     text-align: center;
 }
 
 h2 {
-    font-size: 50px;
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 40px;
     margin: 75px 0;
     text-align: center;
 }
 
 h3 {
+    font-family: 'Josefin Sans', sans-serif;
     font-size: 40px;
     margin: 35px 0;
     text-align: center;
+}
+
+h4 {
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 20px;
+    margin: 5px 0;
+    text-align: left;
 }
 
 /***button div**/
@@ -25,7 +44,6 @@ h3 {
 }
 
 .main-div button{
-    /* color: red; */
     margin-left: 70px;
     padding: 25px;
 }
