@@ -10,23 +10,21 @@ var computerScore = 0;
 $("#counter").text(" Player= " + playerScore + "     Round " + RoundCounter + "     Computer= " + computerScore);
 game();
 
-
 function playerChoose() {
     $("#rock").click(function () {
-        playerSelection = "rock";
+        playerSelection = "Rock";
         playRound();
     });
 
     $("#paper").click(function () {
-        playerSelection = "paper";
+        playerSelection = "Paper";
         playRound();
     });
 
     $("#scissors").click(function () {
-        playerSelection = "scissors";
+        playerSelection = "Scissors";
         playRound();
     });
-
 }
 
 
@@ -35,34 +33,42 @@ function playRound() {
     $("#counter").text(" Player= " + playerScore + "     Round " + RoundCounter + "     Computer= " + computerScore);
     computerPlay();
     if (playerSelection == computerSelection) {
-        alert("It's a draw " + playerSelection + " vs " + computerSelection);
+        $("#winner").text("It's a draw " + playerSelection + " vs " + computerSelection);
         
-    } else if (playerSelection == "rock" && computerSelection == "paper") {
-        alert("You lost " + playerSelection + " loses to " + computerSelection);
+    } else if (playerSelection == "Rock" && computerSelection == "Paper") {
+        $("#winner").text("You lost " + playerSelection + " loses to " + computerSelection);
         computerScore++;
 
-    } else if (playerSelection == "rock" && computerSelection == "scissors") {
-        alert("You won " + playerSelection + " beats " + computerSelection);
+    } else if (playerSelection == "Rock" && computerSelection == "Scissors") {
+        $("#winner").text("You won " + playerSelection + " beats " + computerSelection);
         playerScore++;
 
-    } else if (playerSelection == "paper" && computerSelection == "scissors") {
-        alert("You lost " + playerSelection + " loses to " + computerSelection);
+    } else if (playerSelection == "Paper" && computerSelection == "Scissors") {
+        $("#winner").text("You lost " + playerSelection + " loses to " + computerSelection);
         computerScore++;
 
-    } else if (playerSelection == "paper" && computerSelection == "rock") {
-        alert("You won " + playerSelection + " beats " + computerSelection);
+    } else if (playerSelection == "Paper" && computerSelection == "Rock") {
+        $("#winner").text("You won " + playerSelection + " beats " + computerSelection);
         playerScore++;
 
-    } else if (playerSelection == "scissors" && computerSelection == "rock") {
-        alert("You lost " + playerSelection + " loses to " + computerSelection);
+    } else if (playerSelection == "Scissors" && computerSelection == "Rock") {
+        $("#winner").text("You lost " + playerSelection + " loses to " + computerSelection);
         computerScore++;
 
-    } else if (playerSelection == "scissors" && computerSelection == "paper") {
-        alert("You won " + playerSelection + " beats " + computerSelection);
+    } else if (playerSelection == "Scissors" && computerSelection == "Paper") {
+        $("#winner").text("You won " + playerSelection + " beats " + computerSelection);
         playerScore++;
     }
     $("#counter").text(" Player= " + playerScore + "   Round " + RoundCounter + "   Computer= " + computerScore);
-    
+    if (playerScore>=3){
+        $("#winner").text("You won best 3 out of 5 rounds");
+        gameOver();
+    }
+    else if(computerScore>=3){
+        $("#winner").text("Computer won best 3 out 5 rounds");
+        gameOver();
+    }
+
 }
 
 
@@ -70,21 +76,21 @@ function computerPlay() {
     
     randomNumber = Math.floor(Math.random() * 3);
     if (randomNumber === 0) {
-        computerSelection = "rock";
+        computerSelection = "Rock";
     }
     if (randomNumber === 1) {
-        computerSelection = "paper";
+        computerSelection = "Paper";
     }
     if (randomNumber === 2) {
-        computerSelection = "scissors";
+        computerSelection = "Scissors";
     }
 }
 
-// function youLost() {
-//     Round = 0;
-//     losses++;
-//     started = "no";
-// }
+function gameOver() {
+    Round = 0;
+    computerScore =0;
+    playerScore = 0;
+}
 
 function game() {
     playerChoose();
