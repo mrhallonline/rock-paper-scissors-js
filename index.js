@@ -6,30 +6,37 @@ var wins = 0;
 var losses = 0;
 var playerScore = 0;
 var computerScore = 0;
+var gameStart = true;
+
 
 $("#round").html("Round " + roundCounter);
 $("#counter").html(" &nbsp;&nbsp; Player Score = " + playerScore + " &nbsp;&nbsp;Computer Score = " + computerScore);
 game();
 
 function playerChoose() {
-    $("#rock").click(function () {
-        playerSelection = "Rock";
-        playRound();
-    });
 
-    $("#paper").click(function () {
-        playerSelection = "Paper";
-        playRound();
-    });
-
-    $("#scissors").click(function () {
-        playerSelection = "Scissors";
-        playRound();
-    });
+    if (gameStart== true){
+        $("#rock").click(function () {
+                playerSelection = "Rock";
+            playRound();
+            
+        });
+    
+        $("#paper").click(function () {
+            playerSelection = "Paper";
+            playRound();
+        });
+    
+        $("#scissors").click(function () {
+            playerSelection = "Scissors";
+            playRound();
+        });
+    }
 }
 
 //🗿📄✂
 function playRound() {
+    if (gameStart==true){
     roundCounter++;
     $("#round").html("Round " + roundCounter);
     $("#counter").html(" &nbsp;&nbsp; Player Score = " + playerScore + " &nbsp;&nbsp;Computer Score = " + computerScore);
@@ -54,12 +61,12 @@ function playRound() {
     $("#counter").html(" &nbsp;&nbsp; Player Score = " + playerScore + " &nbsp;&nbsp;Computer Score = " + computerScore);
 
     if (playerScore >= 3) {
-        $("#winner").text("You won best 3 out of 5");
+        $("#round").text("You won! 🏆");
         gameOver();
     } else if (computerScore >= 3) {
-        $("#winner").text("Computer won best 3 out 5");
+        $("#round").text("Computer won! 🥈");
         gameOver();
-    }
+    }}
 }
 
 
@@ -77,9 +84,10 @@ function computerPlay() {
 }
 
 function gameOver() {
-    Round = 0;
-    computerScore = 0;
-    playerScore = 0;
+    
+    gameStart=false;
+    $("#playAgain").html("<button class='rounded-pill btn btn-lg btn-outline-danger'>Play Again</button> ");
+    
 }
 
 function game() {
@@ -99,3 +107,16 @@ function loseRound() {
 function tieRound() {
     $("#" + roundCounter).text("Round " + roundCounter + ": It's a draw " + playerSelection + " vs " + computerSelection);
 }
+
+
+$("#playAgain").click(function(){
+    playerScore=0;
+    computerScore = 0;
+    roundCounter = 0;
+    $("#round").html("Round " + roundCounter);
+    $("#counter").html(" &nbsp;&nbsp; Player Score = " + playerScore + " &nbsp;&nbsp;Computer Score = " + computerScore);
+    $("#playAgain").html("");
+    $("h4").text("");
+    gameStart = true;
+
+});
