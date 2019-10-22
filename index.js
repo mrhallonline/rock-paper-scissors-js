@@ -6,9 +6,9 @@ var wins = 0;
 var losses = 0;
 var playerScore = 0;
 var computerScore = 0;
-var winRound = "Round " + roundCounter+ ": You lost " + playerSelection + " loses to " + computerSelection;
+
 $("#round").html("Round " + roundCounter);
-$("#counter").html(" &nbsp;&nbsp; Player Score = " + playerScore +     " &nbsp;&nbsp;Computer Score = " + computerScore);
+$("#counter").html(" &nbsp;&nbsp; Player Score = " + playerScore + " &nbsp;&nbsp;Computer Score = " + computerScore);
 game();
 
 function playerChoose() {
@@ -32,51 +32,38 @@ function playerChoose() {
 function playRound() {
     roundCounter++;
     $("#round").html("Round " + roundCounter);
-    $("#counter").html(" &nbsp;&nbsp; Player Score = " + playerScore +     " &nbsp;&nbsp;Computer Score = " + computerScore);
+    $("#counter").html(" &nbsp;&nbsp; Player Score = " + playerScore + " &nbsp;&nbsp;Computer Score = " + computerScore);
     computerPlay();
+
     if (playerSelection == computerSelection) {
-        $("#"+roundCounter).text("Round " + roundCounter+ ": It's a draw " + playerSelection + " vs " + computerSelection);
-        
+        tieRound();
     } else if (playerSelection == "Rock" && computerSelection == "Paper") {
-        $("#"+roundCounter).text("Round " + roundCounter+ ": You lost " + playerSelection + " loses to " + computerSelection);
-        computerScore++;
-
+        loseRound();
     } else if (playerSelection == "Rock" && computerSelection == "Scissors") {
-        $("#"+roundCounter).text("Round " + roundCounter+ ": You won " + playerSelection + " beats " + computerSelection);
-        playerScore++;
-
+        winRound();
     } else if (playerSelection == "Paper" && computerSelection == "Scissors") {
-        $("#"+roundCounter).text("Round " + roundCounter+ ": You lost " + playerSelection + " loses to " + computerSelection);
-        computerScore++;
-
+        loseRound();
     } else if (playerSelection == "Paper" && computerSelection == "Rock") {
-        $("#"+roundCounter).text("Round " + roundCounter+ ": You won " + playerSelection + " beats " + computerSelection);
-        playerScore++;
-
+        winRound();
     } else if (playerSelection == "Scissors" && computerSelection == "Rock") {
-        $("#"+roundCounter).text("Round " + roundCounter+ ": You lost " + playerSelection + " loses to " + computerSelection);
-        computerScore++;
-
+        loseRound();
     } else if (playerSelection == "Scissors" && computerSelection == "Paper") {
-        $("#"+roundCounter).text("Round " + roundCounter+ ": You won " + playerSelection + " beats " + computerSelection);
-        playerScore++;
+        winRound();
     }
     $("#round").html("Round " + roundCounter);
-    $("#counter").html(" &nbsp;&nbsp; Player Score = " + playerScore +     " &nbsp;&nbsp;Computer Score = " + computerScore);
-    if (playerScore>=3){
+    $("#counter").html(" &nbsp;&nbsp; Player Score = " + playerScore + " &nbsp;&nbsp;Computer Score = " + computerScore);
+
+    if (playerScore >= 3) {
         $("#winner").text("You won best 3 out of 5");
         gameOver();
-    }
-    else if(computerScore>=3){
+    } else if (computerScore >= 3) {
         $("#winner").text("Computer won best 3 out 5");
         gameOver();
     }
-
 }
 
 
 function computerPlay() {
-    
     randomNumber = Math.floor(Math.random() * 3);
     if (randomNumber === 0) {
         computerSelection = "Rock";
@@ -91,10 +78,24 @@ function computerPlay() {
 
 function gameOver() {
     Round = 0;
-    computerScore =0;
+    computerScore = 0;
     playerScore = 0;
 }
 
 function game() {
     playerChoose();
+}
+
+function winRound() {
+    $("#" + roundCounter).text("Round " + roundCounter + ": You won " + playerSelection + " beats " + computerSelection);
+    playerScore++;
+}
+
+function loseRound() {
+    $("#" + roundCounter).text("Round " + roundCounter + ": You lost " + playerSelection + " loses to " + computerSelection);
+    computerScore++;
+}
+
+function tieRound() {
+    $("#" + roundCounter).text("Round " + roundCounter + ": It's a draw " + playerSelection + " vs " + computerSelection);
 }
