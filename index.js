@@ -1,15 +1,15 @@
 // selection variables
-var randomNumber;
-var computerSelection;
-var playerSelection;
+let randomNumber;
+let computerSelection;
+let playerSelection;
 
 // counters for displaying scores and round
-var roundCounter = 0;
-var playerScore = 0;
-var computerScore = 0;
+let roundCounter = 0;
+let playerScore = 0;
+let computerScore = 0;
 
 // Game cant be played when this is set to false to stop the button interactions at the end of game
-var gameStart = true;
+let gameStart = true;
 
 // Displays round and scores game can be played
 counterDisplay();
