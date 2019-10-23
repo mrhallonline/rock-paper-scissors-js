@@ -1,16 +1,17 @@
 /*** Globals */
 
 body {
-    background-color: #f1c40f;
+    background-color: #CC2A49 ;
 }
 
 h1,
 h2,
 h3,
 h4 {
-    color: #34495e;
+    color: #F99E4C;
     text-align: center;
     line-height: 1;
+    
 }
 
 h2, h3 {
@@ -22,18 +23,22 @@ h2, h3 {
 h1 {
     font-family: 'Indie Flower', cursive;
     font-size: 100px;
-    margin: 15px 0;
+    margin: 15px auto;
+    border: solid;
+    padding-bottom: 15px;;
+    background-color: #582841;
+    
 }
 
 h2 {
-    background-color: #f39c12;
-    border: solid;
+    background-color: #CC2A49;
+    /* border: solid 1px; */
     padding: 10px 0;
 }
 
 h4 {
     font-family: 'Josefin Sans', sans-serif;
-    font-size: 25px;
+    font-size: 14px;
     margin: 8px 0;
     text-align: left;
 }
@@ -41,7 +46,7 @@ h4 {
 /***button div**/
 #shoot {
     text-align: center;
-    padding-right: 70px;
+    padding-right: 50px;
 }
 
 .main-div {
@@ -55,7 +60,7 @@ h4 {
 }
 
 .results {
-    border: solid;
-    background-color: #f39c12;
+    /* border: solid; */
+    background-color: #CC2A49;
     color: #34495e;
 }

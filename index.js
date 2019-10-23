@@ -117,7 +117,7 @@ function tieRound() {
 // Buttons become non reactive and play again button loads
 function gameOver() {
     gameStart = false;
-    $("#playAgain").html("<button class='rounded-pill btn btn-lg btn-outline-danger'>Play Again</button> ");
+    $("#playAgain").html("<button class='rounded-pill btn btn-lg btn-warning'>Play Again</button> ");
 }
 
 // Restart Game conditions, counters back to zero. Buttons are useable again
